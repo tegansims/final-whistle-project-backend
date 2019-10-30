@@ -70,10 +70,11 @@ supporter = Usertype.create(usertype: 'supporter')
 
 
 # needs more user seed data
-User.create(team: spencer, email: 'tegan@tegan.com', password_digest: 'tegan', admin?: false, usertype: player, player: 1)
-User.create(team: spencer, email: 'daria@daria.com', password_digest: 'daria', admin?: true, usertype: player, player: 3)
-User.create(team: spencer, email: 'maddiesdad@maddiesdad.com', password_digest: 'maddiesdad', admin?: false, usertype: supporter)
-User.create(team: spencer, email: 'avtar@avtar.com', password_digest: 'avtar', admin?: false, usertype: coach)
+User.create(team: spencer, email: 'tegan@tegan.com', password: 'tegan', admin?: false, usertype: player, player: 1)
+User.create(team: spencer, email: 'daria@daria.com', password: 'daria', admin?: true, usertype: player, player: 3)
+User.create(team: spencer, email: 'maddiesdad@maddiesdad.com', password: 'maddiesdad', admin?: false, usertype: supporter)
+User.create(team: spencer, email: 'avtar@avtar.com', password: 'avtar', admin?: false, usertype: coach)
+# Player.all.select{|p| p.id == User.first.player.to_i}
 
 mom = Category.create(category: 'Man of the Match')
 dod = Category.create(category: 'Dick of the Day')
