@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# checking the dev branch works
+
 Note.destroy_all
 Vote.destroy_all
 Category.destroy_all
