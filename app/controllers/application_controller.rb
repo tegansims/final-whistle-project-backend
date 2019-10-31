@@ -8,18 +8,18 @@ class ApplicationController < ActionController::API
 
     def decode_token
         begin
-          JWT.decode(token, secret).first
+          JWT.decode(token, ENV['RAILS_SECRET'])[0]
         rescue
           {}
         end
     end
 
     def token
-        request.headers['Authorization']
+        request.headers['Authorization'] 
     end
 
     def issue_token(data)
-        JWT.encode(data, secret)
+        JWT.encode(data, ENV['RAILS_SECRET'])
     end
 
     def secret
