@@ -1,5 +1,5 @@
 class VoteSerializer < ActiveModel::Serializer
-  attributes :id, :comment, :points
+  attributes :id, :comment, :points, :category_id, :player_id
   # has_one :user
   has_one :game
   has_one :player
