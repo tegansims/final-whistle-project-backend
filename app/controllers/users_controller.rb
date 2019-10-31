@@ -8,8 +8,18 @@ class UsersController < ApplicationController
         render json: User.find(params[:id])
     end
 
-    def login
-        
+
+    def create
+        user = User.create(user_params)
+
+        if user.valid?
+            render json: { token: issue_token({id: user.id}), user: UserSerializer.new(user) }
+        else
+            render json: { errors: user.errors.full_messages }, status: :not_acceptable
+        end
+    end
+
+    def login    
         user = User.find_by(email: params[:email])
         
         if user && user.authenticate(params[:password])
@@ -28,5 +38,10 @@ class UsersController < ApplicationController
         end
     end
 
+    private
+    def user_params
+        params.require(:user).permit(:email, :password, :password_confirmation)
+       
+    end
 end
  
