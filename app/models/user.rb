@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_secure_password 
   
-  belongs_to :team
-  belongs_to :usertype
+  belongs_to :team, optional: true
+  belongs_to :usertype, optional: true
   has_many :notes
   has_many :votes
   has_many :games, through: :team
