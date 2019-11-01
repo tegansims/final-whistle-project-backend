@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get '/validate', to: 'users#validate'
   post '/signup', to: 'users#create'
   post '/createteam', to: 'teams#create'
+  post '/createplayer', to: 'players#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
