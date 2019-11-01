@@ -11,6 +11,7 @@ class TeamsController < ApplicationController
     def create
         # byebug
         team = Team.create(team_params)
+        render json: team
     end
    
     private

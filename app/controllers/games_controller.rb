@@ -11,6 +11,7 @@ class GamesController < ApplicationController
     def create
         # byebug
         game = Game.create(game_params)
+        render json: game
     end
    
     private

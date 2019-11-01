@@ -10,6 +10,7 @@ class PlayersController < ApplicationController
     def create
         # byebug
         player = Player.create(player_params)
+        render json: player
     end
    
     private
