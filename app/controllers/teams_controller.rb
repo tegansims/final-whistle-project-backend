@@ -13,6 +13,7 @@ class TeamsController < ApplicationController
         team = Team.create(team_params)
     end
    
+    private
     def team_params
         params.require(:team).permit(:name, :password, :password_confirmation, :sport_id)
        

@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   post '/createteam', to: 'teams#create'
   post '/createplayer', to: 'players#create'
+  post '/creategame', to: 'games#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

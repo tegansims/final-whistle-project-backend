@@ -8,4 +8,14 @@ class GamesController < ApplicationController
         render json: Game.find(params[:id])
     end
 
+    def create
+        # byebug
+        game = Game.create(game_params)
+    end
+   
+    private
+    def game_params
+        params.require(:game).permit(:date, :opposition, :venue, :team_id)
+    end
+
 end

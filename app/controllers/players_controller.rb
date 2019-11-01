@@ -12,6 +12,7 @@ class PlayersController < ApplicationController
         player = Player.create(player_params)
     end
    
+    private
     def player_params
         params.require(:player).permit(:name, :team_id)
        
