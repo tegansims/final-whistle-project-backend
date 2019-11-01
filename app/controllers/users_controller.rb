@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
     def create
         user = User.create(user_params)
+        # byebug
 
         if user.valid?
             render json: { token: issue_token({id: user.id}), user: UserSerializer.new(user) }
@@ -40,7 +41,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:email, :password, :password_confirmation)
+        params.require(:user).permit(:email, :password, :password_confirmation, :team_id, :usertype_id)
        
     end
 end

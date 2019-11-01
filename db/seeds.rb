@@ -20,6 +20,9 @@ Player.destroy_all
 Team.destroy_all
 Sport.destroy_all
 
+# Sport.create(name:'default')
+# Team.create(name:'default', password: 'default', sport_id: 2)
+# Usertype.create(usertype: 'default')
 
 
 hockey = Sport.create(name: 'hockey')
