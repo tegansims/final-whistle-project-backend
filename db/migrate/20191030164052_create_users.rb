@@ -8,8 +8,9 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.boolean :admin?
       # t.references :usertype, null: false, foreign_key: true
       t.references :usertype,  foreign_key: true
-      t.string :player
+      # t.string :player
       # t.string :player, default: null, foreign_key: true
+      t.references :player,  foreign_key: true
       t.timestamps
     end
   end

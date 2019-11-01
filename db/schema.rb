@@ -93,9 +93,10 @@ ActiveRecord::Schema.define(version: 2019_10_30_164059) do
     t.string "password_digest"
     t.boolean "admin?"
     t.bigint "usertype_id"
-    t.string "player"
+    t.bigint "player_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_users_on_player_id"
     t.index ["team_id"], name: "index_users_on_team_id"
     t.index ["usertype_id"], name: "index_users_on_usertype_id"
   end
@@ -130,6 +131,7 @@ ActiveRecord::Schema.define(version: 2019_10_30_164059) do
   add_foreign_key "scorers", "games"
   add_foreign_key "scorers", "players"
   add_foreign_key "teams", "sports"
+  add_foreign_key "users", "players"
   add_foreign_key "users", "teams"
   add_foreign_key "users", "usertypes"
   add_foreign_key "votes", "categories"

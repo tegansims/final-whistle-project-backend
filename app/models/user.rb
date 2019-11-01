@@ -3,6 +3,7 @@ class User < ApplicationRecord
   
   belongs_to :team, optional: true
   belongs_to :usertype, optional: true
+  belongs_to :player, optional: true
   has_many :notes
   has_many :votes
   has_many :games, through: :team
