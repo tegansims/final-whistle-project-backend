@@ -46,9 +46,9 @@ hazza = Player.create(team: spencer, name: 'Harriet Price')
 maddie = Player.create(team: spencer, name: 'Maddie BJ')
 younger = Player.create(team: spencer, name: 'Sophie Younger')
 
-ocsA = Game.create(team: spencer, date: DateTime.new(2019,9,28,10) , venue: 'Thames Ditton KT7 0HB', score: '3-3', opposition: 'OCs', completed?: true)
-wokingH = Game.create(team: spencer, date: DateTime.new(2019,10,5,12) , venue: 'Fieldview', opposition: 'Woking', score: '3-0', completed?: true)
-richmondA = Game.create(team: spencer, date: DateTime.new(2019,10,12,14,30) , venue: 'Quintin Hogg Memorial Ground', opposition: 'Richmond', score: '3-1', completed?: true)
+ocsA = Game.create(team: spencer, date: DateTime.new(2019,9,28,10) , venue: 'Thames Ditton KT7 0HB', score: '3-3', opposition: 'OCs', completed: true)
+wokingH = Game.create(team: spencer, date: DateTime.new(2019,10,5,12) , venue: 'Fieldview', opposition: 'Woking', score: '3-0', completed: true)
+richmondA = Game.create(team: spencer, date: DateTime.new(2019,10,12,14,30) , venue: 'Quintin Hogg Memorial Ground', opposition: 'Richmond', score: '3-1', completed: true)
 guildfordA = Game.create(team: spencer, date: DateTime.new(2019,11,2,11,45) , venue: 'Broadwater School', opposition: 'Guildford')
 sunburyH = Game.create(team: spencer, date: DateTime.new(2019,11,9,15) , venue: 'Fieldview', opposition: 'Sunbury')
 edsA = Game.create(team: spencer, date: DateTime.new(2019,11,16,10) , venue: 'Honor Oak Park', opposition: 'London Eds')
@@ -92,7 +92,7 @@ Vote.create(user: dariaUser, game: ocsA, player: nat, category: mom, comment: "c
 Vote.create(user: maddiesDadUser, game: ocsA, player: daria, category: mom, comment: "anyone but nat")
 Vote.create(user: maddiesDadUser, game: ocsA, player: brady, category: dod, comment: "Nearly getting sent off")
 
-Note.create(user: teganUser, game: ocsA, comment: 'They like to go back to injector on shorts', public?: true)
+Note.create(user: teganUser, game: ocsA, comment: 'They like to go back to injector on shorts', public: true)
 
  
 

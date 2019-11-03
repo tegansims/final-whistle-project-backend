@@ -1,5 +1,5 @@
 class ScorerSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :player
   has_one :game
   has_one :player
 end
