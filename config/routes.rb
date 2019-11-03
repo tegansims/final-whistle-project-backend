@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   post '/createteam', to: 'teams#create'
   post '/createplayer', to: 'players#create'
   post '/creategame', to: 'games#create'
+  post '/createcomment', to: 'notes#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
