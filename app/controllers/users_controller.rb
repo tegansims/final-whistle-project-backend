@@ -24,7 +24,7 @@ class UsersController < ApplicationController
         user = User.find_by(email: params[:email])
         
         if user && user.authenticate(params[:password])
-            render json: { email: user.email, token: issue_token({ id: user.id }) }
+            render json: { user: user, token: issue_token({ id: user.id }) }
         else
             render json: { error: 'Uh oh! Those details are invalid' }, status: 401
         end
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     def validate
         user = get_current_user
         if user
-            render json: { email: user.email, token: issue_token({ id: user.id })  }
+            render json: { user: user, token: issue_token({ id: user.id })  }
         else
             render json: {error: 'Invalid Token'}, status: 401
         end
