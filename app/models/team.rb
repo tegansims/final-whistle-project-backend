@@ -1,7 +1,7 @@
 class Team < ApplicationRecord
   has_secure_password 
 
-  belongs_to :sport
+  belongs_to :sport, optional: true
   has_many :players
   has_many :games
   has_many :users

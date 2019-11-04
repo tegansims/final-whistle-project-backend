@@ -28,6 +28,7 @@ Sport.destroy_all
 hockey = Sport.create(name: 'hockey')
 
 spencer = Team.create(name: 'Spencer W3s', password: 'aaaa', sport: hockey, colour1: '#B01943', colour2: '#2299E2')
+surbiton = Team.create(name: 'Surbiton W5s', password: 'bbbb', sport: hockey, colour1: '#941c3f', colour2: '#fff')
 
 tegan = Player.create(team: spencer, name: 'Tegan Sims')
 muir = Player.create(team: spencer, name: 'Sarah Muir')
@@ -45,6 +46,9 @@ becs = Player.create(team: spencer, name: "Becs HR")
 hazza = Player.create(team: spencer, name: 'Harriet Price')
 maddie = Player.create(team: spencer, name: 'Maddie BJ')
 younger = Player.create(team: spencer, name: 'Sophie Younger')
+
+bob = Player.create(team: surbiton, name: 'Bob McBobberson')
+craig = Player.create(team: surbiton, name: 'Craig McCraigerson')
 
 ocsA = Game.create(team: spencer, date: DateTime.new(2019,9,28,10) , venue: 'Thames Ditton KT7 0HB', score: '3-3', opposition: 'OCs', completed: true)
 wokingH = Game.create(team: spencer, date: DateTime.new(2019,10,5,12) , venue: 'Fieldview', opposition: 'Woking', score: '3-0', completed: true)
@@ -76,10 +80,11 @@ supporter = Usertype.create(usertype: 'supporter')
 
 
 # needs more user seed data
-teganUser = User.create(team: spencer, email: 'tegan@tegan.com', password: 'tegan', admin?: false, usertype: player, player: tegan)
-dariaUser = User.create(team: spencer, email: 'daria@daria.com', password: 'daria', admin?: true, usertype: player, player: daria)
-maddiesDadUser = User.create(team: spencer, email: 'maddiesdad@maddiesdad.com', password: 'maddiesdad', admin?: false, usertype: supporter)
-avtarUser = User.create(team: spencer, email: 'avtar@avtar.com', password: 'avtar', admin?: false, usertype: coach)
+teganUser = User.create(team: spencer, email: 'tegan@tegan.com', password: 'tegan', admin: false, usertype: player, player: tegan)
+dariaUser = User.create(team: spencer, email: 'daria@daria.com', password: 'daria', admin: true, usertype: player, player: daria)
+maddiesDadUser = User.create(team: spencer, email: 'maddiesdad@maddiesdad.com', password: 'maddiesdad', admin: false, usertype: supporter)
+avtarUser = User.create(team: spencer, email: 'avtar@avtar.com', password: 'avtar', admin: false, usertype: coach)
+
 # Player.all.select{|p| p.id == User.first.player.to_i}
 
 mom = Category.create(category: 'Man of the Match')
