@@ -12,8 +12,11 @@ class VotesController < ApplicationController
         # byebug
         momVote = Vote.create(category_id: 1, user_id: params['user_id'], game_id: params['game_id'], player_id: 3, comment: params['momComment'], points: 1)
         dodVote = Vote.create(category_id: 2, user_id: params['user_id'], game_id: params['game_id'], player_id: 3, comment: params['dodComment'], points: 1)
-        render json: Vote.all
-        # render json: dodVote
+        if momVote && dodVote
+            render json: Vote.all
+        else
+            render json: { errors: vote.errors.full_messages }, status: :not_acceptable
+        end
     end
    
     private
