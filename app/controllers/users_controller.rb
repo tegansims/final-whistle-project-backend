@@ -39,6 +39,24 @@ class UsersController < ApplicationController
         end
     end
 
+    def edit
+    
+    end
+
+    def update
+        # byebug
+        user = User.find(params['user']['id']) 
+        team = Team.find_by(name: params['user']['team'])
+
+        if user && team.authenticate(params['user']['password'])
+            user.team_id = team.id
+            user.save(validate:false)
+            render json: { user: user, token: issue_token({ id: user.id })  }
+        else 
+            render json: { errors: user.errors.full_messages }, status: :not_acceptable
+        end
+    end
+
     private
     def user_params
         params.require(:user).permit(:email, :password, :password_confirmation, :team_id, :usertype_id)

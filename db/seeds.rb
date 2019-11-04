@@ -27,7 +27,7 @@ Sport.destroy_all
 
 hockey = Sport.create(name: 'hockey')
 
-spencer = Team.create(name: 'Spencer W3s', password_digest: 'aaaa', sport: hockey, colour1: '#B01943', colour2: '#2299E2')
+spencer = Team.create(name: 'Spencer W3s', password: 'aaaa', sport: hockey, colour1: '#B01943', colour2: '#2299E2')
 
 tegan = Player.create(team: spencer, name: 'Tegan Sims')
 muir = Player.create(team: spencer, name: 'Sarah Muir')
