@@ -48,17 +48,25 @@ class UsersController < ApplicationController
         user = User.find(params['user']['user_id']) 
         team = Team.find_by(name: params['user']['team']) || Team.find(params['user']['team_id'])
         player = Player.find_by(name: params['user']['player'])
-
+        category = Usertype.find_by(usertype: params['user']['usertype'])
+        # byebug
         if user && team.authenticate(params['user']['password'])
-            if team && !player
+    
+            if team
                 user.team_id = team.id
-                user.save(validate:false)
-                render json: { user: user, token: issue_token({ id: user.id })  }
-            elsif player 
-                user.player_id = player.id
-                user.save(validate:false)
-                render json: { user: user, token: issue_token({ id: user.id })  }
             end
+            
+            if category
+                user.usertype_id = category.id
+                if category.id == 2 || category.id == 3
+                    user.player_id = ''
+                end
+            end
+            if player
+                user.player_id = player.id
+            end
+            user.save(validate:false)
+            render json: { user: user, token: issue_token({ id: user.id })  }
         else 
             render json: { errors: user.errors.full_messages }, status: :not_acceptable
         end
