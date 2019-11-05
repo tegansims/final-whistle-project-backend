@@ -13,6 +13,21 @@ class GamesController < ApplicationController
         game = Game.create(game_params)
         render json: game
     end
+
+
+    def edit
+    end
+
+    def update
+        
+        game = Game.find(params['game']['game_id'])
+        home = params['game']['homeScore']
+        away = params['game']['awayScore']
+
+        game.score = home+'-'+away
+        game.save
+        render json: game
+    end
    
     private
     def game_params
