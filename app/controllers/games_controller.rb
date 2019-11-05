@@ -19,14 +19,30 @@ class GamesController < ApplicationController
     end
 
     def update
-        
         game = Game.find(params['game']['game_id'])
         home = params['game']['homeScore']
         away = params['game']['awayScore']
+        category = Category.find(params['game']['category_id'])
+        # byebug
 
-        game.score = home+'-'+away
+        if home && away
+            game.score = home+'-'+away
+        end
+
+        if category
+            if category.id == 1
+                game.mom_winner = game.count_and_sort_votes(1)
+            elsif category.id == 2
+                game.dod_winner = game.count_and_sort_votes(2)
+            end
+        end
+
         game.save
         render json: game
+    end
+
+    def update_winners
+
     end
    
     private
