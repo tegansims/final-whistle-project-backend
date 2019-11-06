@@ -9,11 +9,12 @@ class VotesController < ApplicationController
 
 
     def create
-        mom = Player.find_by(name: params['mom'])
-        dod = Player.find_by(name: params['dod'])
         
-        momVote = Vote.create(category_id: 1, user_id: params['user_id'], game_id: params['game_id'], player_id: mom.id, comment: params['momComment'], points: 1)
-        dodVote = Vote.create(category_id: 2, user_id: params['user_id'], game_id: params['game_id'], player_id: dod.id, comment: params['dodComment'], points: 1)
+        mom = Player.find_by(name: params['vote']['mom'])
+        dod = Player.find_by(name: params['vote']['dod'])
+        
+        momVote = Vote.create(category_id: 1, user_id: params['vote']['user_id'], game_id: params['vote']['game_id'], player_id: mom.id, comment: params['vote']['momComment'], points: 1)
+        dodVote = Vote.create(category_id: 2, user_id: params['vote']['user_id'], game_id: params['vote']['game_id'], player_id: dod.id, comment: params['vote']['dodComment'], points: 1)
         if momVote && dodVote
             render json: Vote.all
         else
