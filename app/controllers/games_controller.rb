@@ -37,9 +37,9 @@ class GamesController < ApplicationController
         end
 
         if category_id
-            if Category.find(category_id) == 1
+            if Category.find(category_id).id == 1
                 game.mom_winner = game.count_and_sort_votes(1)
-            elsif Category.find(category_id) == 2
+            elsif Category.find(category_id).id == 2
                 game.dod_winner = game.count_and_sort_votes(2)
             end
         end

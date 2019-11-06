@@ -13,6 +13,13 @@ class TeamsController < ApplicationController
         team = Team.create(team_params)
         render json: team
     end
+
+    def top_scorer
+        byebug
+        team = Team.find(params[:id])
+        top_scorer = team.top_scorer
+        render json: top_scorer
+    end
    
     private
     def team_params
