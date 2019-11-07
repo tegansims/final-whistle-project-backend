@@ -27,6 +27,20 @@ class TeamsController < ApplicationController
         top_scorers = team.count_and_sort_scorers
         render json: top_scorers
     end
+
+    def top_assister
+        # byebug
+        team = Team.find(params[:id])
+        top_assister = team.top_assister
+        render json: top_assister
+    end
+
+    def top_assisters
+        # byebug
+        team = Team.find(params[:id])
+        top_assisters = team.count_and_sort_assisters
+        render json: top_assisters
+    end
    
     private
     def team_params

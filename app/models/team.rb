@@ -35,4 +35,24 @@ class Team < ApplicationRecord
     return arr
   end
 
+
+  def get_all_team_assists
+    self.assists.select{|assist| assist.game.team.id == self.id }
+  end
+
+  def count_and_sort_assisters
+    assist_count = Hash.new(0)
+    self.get_all_team_assists.each{|assist| assist_count[assist.player.name] += 1}
+    assists_sorted = assist_count.sort_by { |assist,number| number}.reverse
+    # return winners
+  end
+
+  def top_assister
+    arr = []
+    topassists = self.count_and_sort_assisters.select{|assist| assist[1] == self.count_and_sort_assisters[0][1]}
+    winners = topassists.map{|assist| assist.first}.join(", ")
+    arr.push(winners)
+    return arr
+  end
+
 end
