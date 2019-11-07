@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   post '/createcomment', to: 'notes#create'
   post '/createvote', to: 'votes#create'
   patch '/updatewinners', to: 'games#updatewinners'
-  get '/topscorer', to: 'teams#top_scorer'
+  get '/topscorer/:id', to: 'teams#top_scorer'
+  get '/topscorers/:id', to: 'teams#top_scorers'
 
   # patch '/jointeam', to: 'users#update'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

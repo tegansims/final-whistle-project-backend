@@ -28,10 +28,11 @@ class Team < ApplicationRecord
   end
 
   def top_scorer
-    
+    arr = []
     topscorers = self.count_and_sort_scorers.select{|scorer| scorer[1] == self.count_and_sort_scorers[0][1]}
     winners = topscorers.map{|scorer| scorer.first}.join(", ")
-    return winners
+    arr.push(winners)
+    return arr
   end
 
 end
