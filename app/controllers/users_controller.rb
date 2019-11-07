@@ -68,7 +68,7 @@ class UsersController < ApplicationController
             user.save(validate:false)
             render json: { user: user, token: issue_token({ id: user.id })  }
         else 
-            render json: { errors: user.errors.full_messages }, status: :not_acceptable
+            render json: { error: 'Uh oh! Those details are invalid' }, status: 401
         end
     end
 
