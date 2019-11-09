@@ -10,7 +10,7 @@ class NotesController < ApplicationController
 
     def create
         
-        note = Note.create(note_params)
+        note = Note.create(comment: params['comment'], game_id: params['game_id'], user_id: params['user_id'], public: params['publicOrNot'])
         render json: note
     end
    
