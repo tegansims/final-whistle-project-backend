@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     end
 
     def update
-        # byebug
+        
         user = User.find(params['user']['user_id']) 
         team = Team.find_by(name: params['user']['team']) || Team.find(params['user']['team_id'])
         player = Player.find_by(name: params['user']['player'])
