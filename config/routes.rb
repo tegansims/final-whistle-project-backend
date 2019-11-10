@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   post '/teams/new', to: 'teams#create'
   post '/players/new', to: 'players#create'
-  post '/creategame', to: 'games#create'
+  post '/games/new', to: 'games#create'
   post '/createcomment', to: 'notes#create'
   post '/createvote', to: 'votes#create'
   patch '/updatewinners', to: 'games#updatewinners'
