@@ -44,11 +44,12 @@ class UsersController < ApplicationController
     end
 
     def update
-        # byebug
+        
         user = User.find(params['user']['user_id']) 
         team = Team.find_by(name: params['user']['team']) || Team.find(params['user']['team_id'])
         player = Player.find_by(name: params['user']['player'])
         category = Usertype.find_by(usertype: params['user']['usertype'])
+        admin = params['user']['admin']
         # byebug
         if user && team.authenticate(params['user']['password'])
     
@@ -65,6 +66,11 @@ class UsersController < ApplicationController
             if player
                 user.player_id = player.id
             end
+
+            if admin
+                user.admin = true
+            end
+
             user.save(validate:false)
             render json: { user: user, token: issue_token({ id: user.id })  }
         else 
