@@ -5,6 +5,7 @@ class Team < ApplicationRecord
   has_many :players
   has_many :games
   has_many :users
+  has_many :boards
   has_many :notes, through: :games
   has_many :votes, through: :games
   has_many :scorers, through: :games
@@ -16,6 +17,7 @@ class Team < ApplicationRecord
   
   validates :password, presence: true
 
+  # --- scorers --- #
   def get_all_team_scorers
     self.scorers.select{|scorer| scorer.game.team.id == self.id }
   end
@@ -35,7 +37,7 @@ class Team < ApplicationRecord
     return arr
   end
 
-
+  # --- assists --- #
   def get_all_team_assists
     self.assists.select{|assist| assist.game.team.id == self.id }
   end
@@ -54,5 +56,18 @@ class Team < ApplicationRecord
     arr.push(winners)
     return arr
   end
+
+ # --- coordinates --- #
+  def get_all_boards
+    self.boards.select{|board| board.team.id == self.id }
+  end
+
+  def team_board_coords_as_array
+    all_team_boards = self.get_all_boards
+    allcoords = all_team_boards.map{ |b| b.coordinates.tr('[]', '').split(",").map { |s| s.to_i }}
+    return allcoords
+  end
+
+
 
 end

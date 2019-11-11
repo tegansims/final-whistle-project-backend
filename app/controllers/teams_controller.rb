@@ -42,6 +42,13 @@ class TeamsController < ApplicationController
         render json: top_assisters
     end
    
+   
+    def team_coords
+        team = Team.find(params[:id])
+        team_boards = team.team_board_coords_as_array
+        render json: team_boards
+    end
+
     private
     def team_params
         params.require(:team).permit(:name, :password, :password_confirmation, :sport_id)
