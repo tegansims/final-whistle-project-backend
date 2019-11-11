@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   get '/topassister/:id', to: 'teams#top_assister'
   get '/topassisters/:id', to: 'teams#top_assisters'
 
+  get '/teamboardcoords/:id', to: 'teams#team_coords'
+  get '/boardcoords/:id', to: 'boards#coords'
+
   # patch '/jointeam', to: 'users#update'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
