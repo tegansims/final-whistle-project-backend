@@ -19,6 +19,7 @@ Game.destroy_all
 Player.destroy_all
 Team.destroy_all
 Sport.destroy_all
+Board.destroy_all
 
 # Sport.create(name:'default')
 # Team.create(name:'default', password: 'default', sport_id: 2)
@@ -29,6 +30,12 @@ hockey = Sport.create(name: 'hockey')
 
 spencer = Team.create(name: 'Spencer W3s', password: 'aaaa', sport: hockey, colour1: '#B01943', colour2: '#2299E2')
 surbiton = Team.create(name: 'Surbiton W5s', password: 'bbbb', sport: hockey, colour1: '#941c3f', colour2: '#fff')
+
+board1 = Board.create(coordinates: "[[25, 50], [50, 100], [75, 150], [100, 60]]", name: "board one", team_id: spencer)
+board2 = Board.create(coordinates: "[[14, 42], [47, 80], [73, 49]]", name: "board two", team_id: spencer)
+board3 = Board.create(coordinates: "[50, 100], [100, 200], [60, 70]", name: "board three", team_id: spencer)
+board4 = Board.create(coordinates: "[50, 80, 29, 100, 150, 180]", name: "board four", team_id: surbiton)
+board5 = Board.create(coordinates: "[50, 50, 60, 60, 70, 70]", name: "board five", team_id: spencer)
 
 tegan = Player.create(team: spencer, name: 'Tegan Sims')
 muir = Player.create(team: spencer, name: 'Sarah Muir')
