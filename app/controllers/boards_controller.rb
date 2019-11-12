@@ -10,7 +10,7 @@ class BoardsController < ApplicationController
 
 
     def create
-        # byebug
+        byebug
         coordsManipulated = params['coordinates'].values.map{|c| c.values}.flatten.map{|c|c.to_i}
         board = Board.create(team_id: params['team_id'] , name: params['name'], coordinates: coordsManipulated)
         render json: board

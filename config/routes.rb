@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   post '/boards/new', to: 'boards#create'
   post '/createcomment', to: 'notes#create'
   post '/createvote', to: 'votes#create'
+  post '/scorers/new', to: 'scorers#create'
+  post '/assists/new', to: 'assists#create'
   patch '/updatewinners', to: 'games#updatewinners'
   get '/topscorer/:id', to: 'teams#top_scorer'
   get '/topscorers/:id', to: 'teams#top_scorers'
