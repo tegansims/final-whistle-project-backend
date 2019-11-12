@@ -32,6 +32,9 @@ Rails.application.routes.draw do
   get '/teamboardcoords/:id', to: 'teams#team_coords'
   get '/boardcoords/:id', to: 'boards#coords'
 
+  delete '/scorers/:id', to: 'scorers#destroy'
+  delete '/assists/:id', to: 'assists#destroy'
+
   # patch '/jointeam', to: 'users#update'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

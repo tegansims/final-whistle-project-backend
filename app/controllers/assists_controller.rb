@@ -13,6 +13,13 @@ class AssistsController < ApplicationController
         render json: assist
     end
 
+    def destroy
+        
+        assist =Assist.find(params[:id])
+        assist.destroy
+        render json: assist
+    end
+
     private
     def assist_params
         params.require(:assist).permit(:game_id, :team_id, :player)

@@ -13,6 +13,13 @@ class ScorersController < ApplicationController
         render json: scorer
     end
 
+    def destroy
+        
+        scorer =Scorer.find(params[:id])
+        scorer.destroy
+        render json: scorer
+    end
+
     private
     def scorer_params
         params.require(:scorer).permit(:game_id, :team_id, :player)
