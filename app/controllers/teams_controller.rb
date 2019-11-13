@@ -11,6 +11,7 @@ class TeamsController < ApplicationController
     def create
         # byebug
         team = Team.create(team_params)
+        Board.create(name: '* blank board', team_id: team.id, coordinates: "[red, [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10], blue, [10, 35, 10, 35, 10, 35, 10, 35, 10, 35, 10, 35, 10, 35, 10, 35, 10, 35, 10, 35, 10, 35]]")
         render json: team
     end
 
