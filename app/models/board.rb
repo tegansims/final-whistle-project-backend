@@ -17,7 +17,10 @@ class Board < ApplicationRecord
             newArray.push(oneArray)
             return newArray
         end
+    end
 
+    def manipulate_coords
+        
     end
 end
 
