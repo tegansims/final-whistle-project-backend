@@ -17,9 +17,9 @@ Assist.destroy_all
 Scorer.destroy_all
 Game.destroy_all
 Player.destroy_all
+Board.destroy_all
 Team.destroy_all
 Sport.destroy_all
-Board.destroy_all
 
 # Sport.create(name:'default')
 # Team.create(name:'default', password: 'default', sport_id: 2)
@@ -33,8 +33,8 @@ surbiton = Team.create(name: 'Surbiton W5s', password: 'bbbb', sport: hockey, co
 spencer5s = Team.create(name: 'Spencer W5s', password: '5555', sport: hockey, colour1: '#B01943', colour2: '#2299E2')
 testTeam = Team.create(name: 'Test team', password: 'test', sport: hockey)
 
-board1 = Board.create(coordinates: "[218, 63, 179, 140, 257, 140, 25, 197, 392, 197, 218, 240, 140, 284, 304, 284, 218, 388, 68, 388, 365, 387]", name: "2019-2020 formation", team: spencer)
-board2 = Board.create(coordinates: "[218, 63, 218, 146, 218, 312, 77, 183, 343, 183, 218, 218, 114, 284, 318, 284, 218, 388, 68, 388, 365, 387]", name: "2018-2019 formation", team: spencer)
+board1 = Board.create(coordinates: "red, [[218, 63, 179, 140, 257, 140, 25, 197, 392, 197, 218, 240, 140, 284, 304, 284, 218, 388, 68, 388, 365, 387]]", name: "2019-2020 formation", team: spencer)
+board2 = Board.create(coordinates: "red, [[218, 63, 218, 146, 218, 312, 77, 183, 343, 183, 218, 218, 114, 284, 318, 284, 218, 388, 68, 388, 365, 387]]", name: "2018-2019 formation", team: spencer)
 board3 = Board.create(coordinates: "[red, [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10], blue, [10, 35, 10, 35, 10, 35, 10, 35, 10, 35, 10, 35, 10, 35, 10, 35, 10, 35, 10, 35, 10, 35]]", name: "* Default Board", team: spencer)
 board4 = Board.create(coordinates: "[red, [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10], blue, [10, 35, 10, 35, 10, 35, 10, 35, 10, 35, 10, 35, 10, 35, 10, 35, 10, 35, 10, 35, 10, 35]]", name: "* Default Board", team: surbiton)
 board5 = Board.create(coordinates: "[50, 50, 60, 60, 70, 70]", name: "board five", team: spencer)
