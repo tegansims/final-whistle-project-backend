@@ -1,24 +1,20 @@
-# README
+# final whistle
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Final Whistle is an app designed to let sports teams and their fans track their data.
 
-Things you may want to cover:
+## Features 
 
-* Ruby version
+Create a team, then create players and games associated with that team. Let your teammates or friends know the team password, and they can then join the final whistle community to log their vote for a game's man of the match, and post comments to share thoughts with other users.
 
-* System dependencies
+Admins can log scorers, assisters, and, once all votes are in, can calculate and publish the man of the match results, marking the game as completed.
 
-* Configuration
+Users can also create and share formations and set plays, using the interactive tactics board.
 
-* Database creation
+## Tech used
+Built using Ruby on Rails, React and, for the tactics board, the Konva library.
 
-* Database initialization
+## Links
 
-* How to run the test suite
+Frontend can be found here: https://github.com/tegansims/final-whistle-project-frontend
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Deployed onto Heroku: https://final-whistle.herokuapp.com/
